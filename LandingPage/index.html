@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Netflix Landing Page with Banner & K-Dramas</title>
+  <style>
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background-color: #141414;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    
+    header {
+      background-color: #141414;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #e50914;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #e50914;
+    }
+
+    /* Hero Banner */
+    .hero {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      height: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding-left: 60px;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.8);
+      margin-bottom: 60px;
+      border-radius: 8px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      line-height: 1.3;
+    }
+
+   
+    main {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+      padding: 0 20px;
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      background-color: #222;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(229,9,20,0.4);
+      flex: 1 1 300px;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: #ddd;
+      transition: transform 0.3s ease;
+    }
+
+    .column:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(229,9,20,0.7);
+    }
+
+    .column img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    }
+
+    .column h2 {
+      color: #e50914;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    .column p {
+      font-size: 1.1rem;
+    }
+
+    
+    .gallery-section {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .gallery-section h2 {
+      color: #e50914;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      background-color: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(229,9,20,0.4);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      color: #ddd;
+      text-align: center;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(229,9,20,0.7);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 3px solid #e50914;
+    }
+
+    .gallery-item p {
+      padding: 10px 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: white;
+      background-color: #111;
+      margin: 0;
+    }
+
+   
+    footer {
+      background-color: #141414;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #333;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+        margin: 40px 20px;
+      }
+
+      .hero {
+        height: 300px;
+        padding-left: 30px;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">NETFLIX</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">TV Shows</a>
+      <a href="#">Movies</a>
+      <a href="#">Latest</a>
+      <a href="#">My List</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Watch Netflix Anywhere</h1>
+    <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV without paying more.</p>
+  </section>
+
+  <main>
+    <section class="column">
+      <img src="https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=600&q=80" alt="Unlimited Movies" />
+      <h2>Unlimited Movies & TV Shows</h2>
+      <p>Enjoy a vast library of titles updated regularly so you never run out of things to watch.</p>
+    </section>
+
+    <section class="column">
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80" alt="Watch Anywhere" />
+      <h2>Watch on Any Device</h2>
+      <p>Seamlessly switch between devices without missing a scene, anytime and anywhere.</p>
+    </section>
+
+    <section class="column">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Kids Profile" />
+      <h2>Create Profiles for Kids</h2>
+      <p>Kids get their own space with age-appropriate shows and parental controls built-in.</p>
+    </section>
+  </main>
+
+  <section class="gallery-section">
+    <h2>Popular Movies & K-Dramas</h2>
+    <div class="gallery">
+      <!-- K-Dramas -->
+      <div class="gallery-item">
+        <img src="aos.png" alt="Alchemy of Souls" />
+        <p>Alchemy of Souls</p>
+      </div>
+      <div class="gallery-item">
+        <img src="qot.png" alt="Queen of Tears" />
+        <p>Queen of Tears</p>
+      </div>
+      <div class="gallery-item">
+        <img src="twtw.png" alt="Twenty Five Twenty One" />
+        <p>Twenty Five Twenty One</p>
+      </div>
+      <div class="gallery-item">
+        <img src="dos.png" alt="Descendants of the Sun" />
+        <p>Descendants of the Sun</p>
+      </div>
+      <div class="gallery-item">
+        <img src="goblin.png" alt="The Guardian: The Lonely and Great God (Goblin)" />
+        <p>The Guardian: Goblin</p>
+      </div>
+      <div class="gallery-item">
+        <img src="dead.png" alt="All of Us Are Dead" />
+        <p>All of Us Are Dead</p>
+      </div>
+
+      <!-- Movies -->
+      <div class="gallery-item">
+        <img src="fd.png" alt="Final Destination" />
+        <p>Final Destination</p>
+      </div>
+      <div class="gallery-item">
+        <img src="intern.png" alt="The Intern" />
+        <p>The Intern</p>
+      </div>
+      <div class="gallery-item">
+        <img src="inception.webp" alt="Inception" />
+        <p>Inception</p>
+      </div>
+      <div class="gallery-item">
+        <img src="net.webp" alt="The Social Network" />
+        <p>The Social Network</p>
+      </div>
+      <div class="gallery-item">
+        <img src="avengers.png" alt="Avengers: Endgame" />
+        <p>Avengers: Endgame</p>
+      </div>
+      <div class="gallery-item">
+        <img src="parasite.png" alt="Parasite" />
+        <p>Parasite</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Netflix, Inc. All rights reserved.
+  </footer>
+</body>
+</html>
